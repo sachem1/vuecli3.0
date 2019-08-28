@@ -12,6 +12,12 @@ export default [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
+    //打包的时候标注js
     component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+  },
+  {
+    path :'/argu/:name',
+    component:()=>import('@views/argu.vue')
   }
+
 ]
