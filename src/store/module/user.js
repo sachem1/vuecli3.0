@@ -1,10 +1,10 @@
-const state={
-    //
+const state = {
+  //
 }
 
-const mutatioins={
-    //
+const mutatioins = {
+  //
 }
-const actions ={
-    //
+const actions = {
+  //
 }
