@@ -1,6 +1,7 @@
 /* eslint-disable no-template-curly-in-string */
 <template>
 	<div class="home">
+		<div>{{food}}</div>
 		<p>
 			<button @click="handleClick('back')">返回上一页</button>
 			<button @click="handleClick('push_3')">跳转</button>
@@ -22,6 +23,12 @@ export default {
   components: {
     HelloWorld
   },
+  props: {
+    food: {
+      type: String,
+      default: 'apple'
+    }
+  },
   methods: {
     handleClick (type) {
       if (type === 'back') this.$router.back()
@@ -42,7 +49,7 @@ export default {
         })
       } else if (type === 'push_3') {
         this.$router.push({
-          path: '/argu/${name}'
+          path: '/argu/${name}' // http://localhost:8080/argu/jiesen
         })
       } else if (type === 'replace') {
         this.$router.replace('parent')
