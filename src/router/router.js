@@ -14,6 +14,11 @@ export default [{
   component: () => import('@/views/test.vue')
 },
 {
+  path: '/store',
+  name: 'store',
+  component: () => import('@/views/store.vue')
+},
+{
   path: '/argu/:name',
   name: 'argu',
   component: () => import('@/views/argu'),
