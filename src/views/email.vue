@@ -6,7 +6,7 @@ export default {
   methods: {
     handleClick () {
       this.$emit('on-click', 'hello')
-      this.$bus.$emit('on-click', 'hello')
+      this.$bus.$emit('on-click', 'hello') // this.$bus.$emit触发当前实例上的事件，把on-click事件绑定在$bus上
     }
   },
   mounted () {

@@ -1,1 +1,9 @@
 状态管理
+
+1.vue components dispatch(触发)  actions ---> 异步请求后台接口(这是一个全局的)
+1.2 vue components dispatch getter 
+2.actions commit mutations 如果不需要异步走后台接口,可以直接 dispatch mutations 
+3.mutations mutate(改变) state  --->更改state中的值
+4.state render vue components   ---> 当组件中有用到state中的值,会进行渲染
+
+tips: vue 里面修改一个值,不能直接进行值修改,必须通过 dispatch一个action ,commit mutations 或者直接commit mutations 
