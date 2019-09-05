@@ -15,7 +15,7 @@
 <script>
 import AInput from '_c/AInput.vue'
 import AShow from '_c/AShow.vue'
-import { mapState, mapGetters, mapMutations } from 'vuex'
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 export default {
   name: 'store',
   data () {
@@ -35,6 +35,7 @@ export default {
       userName: state => state.user.userName // user 是模块名称
     }),
     ...mapGetters(['appNameWithVersion', 'firstLetter']),
+
     // appName () {
     //   return this.$store.state.appName
     // },
@@ -53,6 +54,10 @@ export default {
 
   },
   methods: {
+    ...mapActions(['updateAppName']),
+    ...mapMutations([
+      'SET_APP_NAME'
+    ]),
     handleInput (val) {
       this.inputValue = val
     },
@@ -60,8 +65,10 @@ export default {
       this.userName = username
     },
     chanageAppName () {
-      this.$store.commit('SET_APP_NAME', 'newAppName')
+      //this.$store.commit('SET_APP_NAME', 'newAppName')
+      this.$store.dispatch('updateAppName')
     }
+
   }
 }
 </script>
