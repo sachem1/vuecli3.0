@@ -1,9 +1,11 @@
 <template>
 	<div>
-		<a-input v-model="inputValue" />
-		<a-input @input="handleInput" />
-		<p>{{inputValue}} last letter is -> {{inputValueLastLetter}}</p>
-		<a-show :content="inputValue" />
+		<a-input v-model="stateValue" />
+		<a-input :value="handleInput"
+						 @input='inputChange' />
+		<p>{{stateValue}} last letter is -> {{inputValueLastLetter}}</p>
+		<p>{{handleInput}}</p>
+		<a-show :content="stateValue" />
 		<p>appName:{{appName}} -->{{appNameWithVersion}}</p>
 		<p>userName:{{userName}} --> firstLetter:{{firstLetter}}</p>
 
@@ -32,10 +34,19 @@ export default {
     // ...mapState(['appName', 'userName'])
     ...mapState({
       // appName: state => state.appName,
-      userName: state => state.user.userName // user 是模块名称
+      userName: state => state.user.userName, // user 是模块名称
+      handleInput: state => state.handleInput,
+      stateValue: state => state.stateValue
     }),
     ...mapGetters(['appNameWithVersion', 'firstLetter']),
-
+    stateValue: {
+      get () {
+        return this.$store.state.stateValue
+      },
+      set (value) {
+        this.SET_INPUT_VALUE(value)
+      }
+    },
     // appName () {
     //   return this.$store.state.appName
     // },
@@ -49,24 +60,28 @@ export default {
       return this.$store.getters.appNameWithVersion
     },
     appName () {
-      return this.$store.appName
+      return this.$store.state.appName
     }
 
   },
   methods: {
     ...mapActions(['updateAppName']),
     ...mapMutations([
-      'SET_APP_NAME'
+      'SET_APP_NAME',
+      'SET_INPUT_VALUE'
     ]),
-    handleInput (val) {
-      this.inputValue = val
-    },
+    // handleInput (val) {
+    //   this.inputValue = val
+    // },
     chanageUserName (username) {
       this.userName = username
     },
     chanageAppName () {
-      //this.$store.commit('SET_APP_NAME', 'newAppName')
+      // this.$store.commit('SET_APP_NAME', 'newAppName')
       this.$store.dispatch('updateAppName')
+    },
+    inputChange (val) {
+      this.SET_INPUT_VALUE(val)
     }
 
   }

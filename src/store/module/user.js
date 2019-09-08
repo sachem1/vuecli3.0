@@ -1,5 +1,5 @@
 const state = {
-  userName: 'jiesen'
+  userName: 'qjiesen'
 }
 const getters = {
   firstLetter: (state) => {
@@ -13,7 +13,7 @@ const actions = {
   //
 }
 export default {
-  // namespced: true,
+  namespced: true,
   state,
   mutatioins,
   actions,
