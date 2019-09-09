@@ -18,7 +18,9 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
-import axios from 'axios'
+// import axios from 'axios'
+import { getUserInfo } from '@/api/user'
+
 export default {
   name: 'home',
   components: {
@@ -57,10 +59,12 @@ export default {
       } else this.$router.push('/home')
     },
     getInfo () {
-      // getUserInfo({ userId: 21 }).then(res => {
-      //   console.log('res: ', res)
+      getUserInfo({ userId: 21 }).then(res => {
+        console.log('res: ', res)
+      })
+      // axios.get('http://api.jieqiang.top/Setting/CustomerService/GetSignTypes').then(res => {
+      //   console.log('res:' + res)
       // })
-      axios.get('http://api.jieqiang.top/Setting/CustomerService/GetSignTypes')
     }
   }
 }
