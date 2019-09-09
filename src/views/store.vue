@@ -38,15 +38,15 @@ export default {
       handleInput: state => state.handleInput,
       stateValue: state => state.stateValue
     }),
-    ...mapGetters(['appNameWithVersion', 'firstLetter']),
-    stateValue: {
-      get () {
-        return this.$store.state.stateValue
-      },
-      set (value) {
-        this.SET_INPUT_VALUE(value)
-      }
-    },
+    ...mapGetters(['appNameWithVersion', 'firstLetter', 'stateValue']),
+    // stateValue: {
+    //   get () {
+    //     return this.$store.state.stateValue
+    //   },
+    //   set (value) {
+    //     this.SET_INPUT_VALUE(value)
+    //   }
+    // },
     // appName () {
     //   return this.$store.state.appName
     // },
