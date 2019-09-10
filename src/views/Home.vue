@@ -60,7 +60,7 @@ export default {
     },
     getInfo () {
       getUserInfo({ userId: 21 }).then(res => {
-        console.log('res: ', res)
+        console.log('res--->: ', res)
       })
       // axios.get('http://api.jieqiang.top/Setting/CustomerService/GetSignTypes').then(res => {
       //   console.log('res:' + res)

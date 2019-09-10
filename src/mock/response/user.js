@@ -1,3 +1,6 @@
 export const getUserInfo = (options) => {
-  console.log(options)
+  console.log('userjs:' + options)
+  return {
+    userId: 123
+  }
 }

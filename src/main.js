@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Bus from './bus'
+require('./mock')
 
 // 阻止你显示显示生产模式的消息
 Vue.config.productionTip = false
