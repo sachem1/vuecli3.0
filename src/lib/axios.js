@@ -37,10 +37,14 @@ class HttpRequest {
   }
 
   request (options) {
+    console.log('start request')
     const instance = axios.create()
     // 合并对象属性值
     options = Object.assign(this.getInsideConfig(), options)
     this.interceptors(instance)
+    // return {
+    //   data: 'dddd'
+    // }
     return instance(options)
   }
 }

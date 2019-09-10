@@ -59,8 +59,9 @@ export default {
       } else this.$router.push('/home')
     },
     getInfo () {
+      console.log('开始点击')
       getUserInfo({ userId: 21 }).then(res => {
-        console.log('res: ', res)
+        console.log('res: ----', res)
       })
       // axios.get('http://api.jieqiang.top/Setting/CustomerService/GetSignTypes').then(res => {
       //   console.log('res:' + res)
