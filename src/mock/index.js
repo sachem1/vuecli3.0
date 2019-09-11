@@ -8,3 +8,4 @@ console.log('jinru  mock')
 // Mock.mock(/\/GetSignTypes/, 'get', getUserInfo)
 console.log('jinru  mock2')
 export default Mock
+

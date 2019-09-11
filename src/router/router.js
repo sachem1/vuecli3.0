@@ -25,6 +25,14 @@ export default [{
   props: true
 },
 {
+  path: '/count-tos',
+  name: 'count_tos',
+  meta: {
+    title: 'count_to'
+  },
+  component: () => import('@/views/counttos.vue')
+},
+{
   path: '/parent',
   name: 'parent',
   component: () => import('@/views/parent'),
