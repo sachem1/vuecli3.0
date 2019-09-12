@@ -7,3 +7,4 @@ import {
 Mock.mock(/\/CustomerService/, 'get', getUserInfo)
 
 export default Mock
+
