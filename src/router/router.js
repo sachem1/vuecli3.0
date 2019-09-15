@@ -25,12 +25,17 @@ export default [{
   props: true
 },
 {
-  path: '/count-tos',
-  name: 'count_tos',
+  path: '/count-to',
+  name: 'count_to',
   meta: {
     title: 'count_to'
   },
-  component: () => import('@/views/counttos.vue')
+  component: () => import('@/views/count-to.vue')
+},
+{
+  path: '/splitPane',
+  name: 'splitPane',
+  component: () => import('@/views/split-pane.vue')
 },
 {
   path: '/parent',

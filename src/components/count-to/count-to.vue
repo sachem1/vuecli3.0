@@ -1,12 +1,15 @@
 <template>
 	<div>
-		<slot></slot><span :class="countClass"
+		<slot name="left"></slot><span ref="number"
+					:class="countClass"
 					:id="eleId"></span>
+		<slot name="right"></slot>
 	</div>
 </template>
 
 <script>
 import CountUp from 'countup'
+import { setTimeout } from 'timers'
 
 export default {
   name: 'CountTo',
@@ -29,22 +32,22 @@ export default {
   },
   props: {
     /**
-																										 *  @description 初始值
-																										*/
+																																							 *  @description 初始值
+																																							*/
     startVal: {
       type: Number,
       default: 0
     },
     /**
-							 * @description 最终值
-							 */
+																				 * @description 最终值
+																				 */
     endVal: {
       type: Number,
       required: true
     },
     /**
-																										* @description 小数点后保留几位小数
-																										*/
+																																							* @description 小数点后保留几位小数
+																																							*/
     decimals: {
       type: Number,
       default: 0
@@ -56,29 +59,29 @@ export default {
       default: 0
     },
     /**
-																										* @description 渐变时长
-																										*/
+																																							* @description 渐变时长
+																																							*/
     duration: {
       type: Number,
       default: 1
     },
     /**
-																								* @description 是否使用变速效果
-																								*/
+																																					* @description 是否使用变速效果
+																																					*/
     useEasing: {
       type: Boolean,
       default: false
     },
     /**
-																								* @description 是否使用分组
-																								*/
+																																					* @description 是否使用分组
+																																					*/
     useGrouping: {
       type: Boolean,
       default: true
     },
     /**
-																								* @description 分隔符
-																								*/
+																																					* @description 分隔符
+																																					*/
     separator: {
       type: String,
       default: ','
@@ -94,6 +97,21 @@ export default {
       default: ''
     }
   },
+  methods: {
+    getCount () {
+      console.log(this.$refs.number)
+      return this.$refs.number.innerText
+    }
+  },
+  watch: {
+    endVal (newVal) {
+      this.counter.update(newVal)
+      setTimeout(() => {
+        this.$emit('on-animation-end', Number(this.getCount()))
+      }, this.duration * 1000)
+    }
+  },
+
   mounted () {
     this.$nextTick(() => {
       this.counter = new CountUp(this.eleId, this.startVal, this.endVal, this.decimals, this.duration, {
