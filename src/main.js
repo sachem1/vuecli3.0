@@ -16,5 +16,8 @@ Vue.prototype.$bus = Bus
 new Vue({
   router,
   store,
-  render: h => h(App)
+  // render: h => h(App)
+  render: h => h('div', [
+    h('span', '123')
+  ])
 }).$mount('#app')
