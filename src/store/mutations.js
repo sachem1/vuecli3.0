@@ -9,7 +9,11 @@ const mutations = {
   },
   SET_STATE_VALUE (state, value) {
     state.stateValue = value
+  },
+  Login(username,password){
+
   }
+
 }
 
 export default mutations

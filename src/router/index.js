@@ -25,11 +25,12 @@ router.beforeEach((to, from, next) => {
       })
     }
   } else {
-    if (HAS_LOGINED) {
-      next({
-        name: 'home'
-      })
-    } else next()
+    // if (HAS_LOGINED) {
+    //   next({
+    //     name: 'home'
+    //   })
+    // } else next()
+    next()
   }
 })
 

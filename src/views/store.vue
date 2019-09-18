@@ -77,6 +77,7 @@ export default {
       this.userName = username
     },
     chanageAppName () {
+      //提交mutation
       // this.$store.commit('SET_APP_NAME', 'newAppName')
       this.$store.dispatch('updateAppName')
     },
