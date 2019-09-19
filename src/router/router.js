@@ -65,6 +65,11 @@ export default [{
   }
 },
 {
+  path: '/grid',
+  name: 'grid',
+  component: () => import('@/views/Iview/grid.vue')
+},
+{
   path: '/main',
   redirect: to => {
     return {

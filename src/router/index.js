@@ -16,22 +16,22 @@ const router = new Router({
 const HAS_LOGINED = true
 
 // 路由守卫
-router.beforeEach((to, from, next) => {
-  if (to.name !== 'login') {
-    if (HAS_LOGINED) next()
-    else {
-      next({
-        name: 'login'
-      })
-    }
-  } else {
-    if (HAS_LOGINED) {
-      next({
-        name: 'home'
-      })
-    } else next()
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.name !== 'login') {
+//     if (HAS_LOGINED) next()
+//     else {
+//       next({
+//         name: 'login'
+//       })
+//     }
+//   } else {
+//     if (HAS_LOGINED) {
+//       next({
+//         name: 'home'
+//       })
+//     } else next()
+//   }
+// })
 
 // 路由后置勾子
 router.afterEach((to, from) => {
