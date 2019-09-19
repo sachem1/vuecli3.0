@@ -19,11 +19,9 @@ Vue.use(iview)
 new Vue({
   router,
   store,
-   // render: h => h(App)
-  render: h => h('div', [
-    h('span', '123')
-  ])
+  // render: h => h(App)
   render: h => h(AppLayout)
   // render: h => h('div', [
   //   h('span', '123')
   // ])}).$mount('#app')
+})
