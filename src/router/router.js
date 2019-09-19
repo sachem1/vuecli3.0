@@ -38,6 +38,16 @@ export default [{
   component: () => import('@/views/split-pane.vue')
 },
 {
+  path: '/login',
+  name: 'login',
+  component: () => import('@/views/login.vue')
+},
+{
+  path: '/user',
+  name: 'user',
+  component: () => import('@/views/user.vue')
+},
+{
   path: '/parent',
   name: 'parent',
   component: () => import('@/views/parent'),
@@ -55,7 +65,6 @@ export default [{
     default: () => import('@/views/child.vue'),
     email: () => import('@/views/email'),
     phone: () => import('@/views/phone')
-
   }
 },
 {
@@ -84,9 +93,14 @@ export default [{
   component: Home
 },
 {
-  path: 'login',
+  path: '/login',
+  name: 'login',
+  meta: {
+    title: '登录页'
+  },
   component: () => import('@/views/login.vue')
 },
+
 {
   path: '/about',
   // route level code-splitting

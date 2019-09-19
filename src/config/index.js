@@ -1,1 +1,1 @@
-export const baseUrl = 'http://api2.jieqiang.top'
+export const baseUrl = 'http://localhost:18096'

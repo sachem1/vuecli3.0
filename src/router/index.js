@@ -30,9 +30,6 @@ const HAS_LOGINED = true
 //         name: 'home'
 //       })
 //     } else next()
-//   }
-// })
-
 // 路由后置勾子
 router.afterEach((to, from) => {
   // logining=false

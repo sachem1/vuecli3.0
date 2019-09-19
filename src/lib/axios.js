@@ -1,3 +1,4 @@
+
 import axios from 'axios'
 import {
   baseURL
@@ -6,13 +7,13 @@ import {
 class HttpRequest {
   // options 参数对象
   constructor(baseUrl = baseURL) {
-    console.log(baseURL)
-    this.baseUrl = baseURL
+    console.log('baseurl:' + baseURL)
+    this.baseUrl = 'http://localhost:18096'
     this.queue = {}
   }
   getInsideConfig() {
     const config = {
-      baseUrl: this.baseUrl,
+      baseUrl: 'http://localhost:18096',
       headers: {
         //
       }
@@ -20,12 +21,13 @@ class HttpRequest {
     console.log(config.baseUrl)
     return config
   }
-  interceptors(instance) {
+  interceptors(instance, url) {
     // 请求拦截器
     instance.interceptors.request.use(config => {
       // 添加全局的loading...align-self-auto
       // Spin。show() 遮罩层
       console.log('request')
+      this.queue[url] = true
       return config
     }, error => {
       return Promise.reject(error)
@@ -42,9 +44,9 @@ class HttpRequest {
   request(options) {
     const instance = axios.create()
     // 合并对象属性值
-    console.log(this.getInsideConfig())
+    console.log('getInsideConfig:' + this.getInsideConfig())
     options = Object.assign(this.getInsideConfig(), options)
-    this.interceptors(instance)
+    this.interceptors(instance, options.url)
     return instance(options)
   }
 }
